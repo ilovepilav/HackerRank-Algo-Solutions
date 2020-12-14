@@ -121,3 +121,25 @@ int[] ones = new int[path.Length];
         }
         return counter;
 ```
+## [Jumping on the Clouds](https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem)
+
+```c#
+static int jumpingOnClouds(int[] c)
+    {
+        int counter = 0;
+        for (int i = 0; i < c.Length; i++)
+        {
+            if ((i + 2) < c.Length && c[i + 2] != 1)
+            {
+                counter++;
+                i++;
+            }
+            else
+            {
+                counter++;
+            }
+
+        }
+        return counter - 1;
+    }
+```
