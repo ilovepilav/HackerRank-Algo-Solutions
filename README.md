@@ -4,6 +4,7 @@
 ## [Mini-Max Sum](https://www.hackerrank.com/challenges/mini-max-sum/problem)
 
 ```c#
+
 static void miniMaxSum(int[] arr)
     {
         long[] longArr = new long[arr.Count()];
