@@ -15,35 +15,32 @@ using System;
 class Solution
 {
 
-    // Complete the jumpingOnClouds function below.
-    static int jumpingOnClouds(int[] c)
+    // Complete the repeatedString function below.
+    static long repeatedString(string s, long n)
     {
-        int counter = 0;
-        for (int i = 0; i < c.Length; i++)
-        {
-            if ((i + 2) < c.Length && c[i + 2] != 1)
-            {
-                counter++;
-                i++;
-            }
-            else
-            {
-                counter++;
-            }
+        //int sLenght = s.Length;
+        //long iter = n / sLenght;
+        //long remain = n % sLenght;
+        //int iterLenghtA = s.Length - s.Replace("a", "").Length;
+        //string subS = s.Substring(0, Convert.ToInt32(remain));
+        //int subSCount = subS.Length - subS.Replace("a", "").Length;
 
-        }
-        return counter - 1;
+        //return iter * iterLenghtA + subSCount;
+
+
+        // And this is the one-liner :)
+        return (n / s.Length) * (s.Length - s.Replace("a", "").Length) + ((s.Substring(0, Convert.ToInt32(n % s.Length))).Length - (s.Substring(0, Convert.ToInt32(n % s.Length))).Replace("a", "").Length);
     }
 
     static void Main(string[] args)
     {
         TextWriter textWriter = new StreamWriter(@System.Environment.GetEnvironmentVariable("OUTPUT_PATH"), true);
 
-        int n = Convert.ToInt32(Console.ReadLine());
+        string s = Console.ReadLine();
 
-        int[] c = Array.ConvertAll(Console.ReadLine().Split(' '), cTemp => Convert.ToInt32(cTemp))
-        ;
-        int result = jumpingOnClouds(c);
+        long n = Convert.ToInt64(Console.ReadLine());
+
+        long result = repeatedString(s, n);
 
         textWriter.WriteLine(result);
 
